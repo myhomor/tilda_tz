@@ -24,13 +24,14 @@
                 <hr>
                 <div class="m-3">
                     <i class="bi bi-person-workspace mb-3"></i>
+                    <?if(!is_null(Yii::$app->user->identity)):?>
                     <?=Yii::$app->user->identity->username?>( <a href="/logout/">Выйти</a> )
-                    </a>
+                    <?endif;?>
                 </div>
             </div>
         </nav>
 
-        <main role="main" class="col-md-8 ml-sm-auto col-lg-8 pt-3 px-4">
+        <main role="main" class="col-md-8 ml-sm-auto col"-lg-8 pt-3 px-4">
 
 <?if( isset($header) ):?>
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">

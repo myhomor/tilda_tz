@@ -28,6 +28,9 @@ abstract class Common extends \yii\web\Controller
     protected function _myBeforeAction($action){}
     public function beforeAction($action)
     {
+        if( is_null(Yii::$app->user->identity) )
+            $this->redirect(['/login/']);
+
         $this->_myBeforeAction($action);
         return parent::beforeAction($action);
     }

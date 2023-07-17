@@ -23,42 +23,44 @@ use yii\bootstrap5\Html;
         <div class="bg-light border rounded-3 p-3">
             <h2>Решение</h2>
             <?
-            $number = 1;
-            $rows = 10; // Количество строк в лесенке
+            $number = $rows = 1;
+            $limit = 100;
 
-            for ($i = 1; $i <= $rows; $i++) {
-                for ($j = 1; $j <= $i; $j++) {
-                    echo $number . " ";
+            while ($number <= $limit)
+            {
+                for ($a = 1; $a <= $rows; $a++)
+                {
+                    if ($number > $limit)
+                        echo '.+ ';
+                    else
+                        echo $number . ' ';
                     $number++;
                 }
-                echo PHP_EOL.'<br>';
+                echo PHP_EOL . '<br>';
+                $rows++;
             }?>
             <textarea style="width: 100%;height: 300px">
-                $number = 1;
-                $rows = 10; // Количество строк в лесенке
+                $number = $rows = 1;
+                $limit = 100;
 
-                for ($i = 1; $i <= $rows; $i++) {
-                    for ($j = 1; $j <= $i; $j++) {
-                        echo $number . " ";
+                while ($number <= $limit)
+                {
+                    for ($a = 1; $a <= $rows; $a++)
+                    {
+                        if ($number > $limit)
+                            echo '.+ ';
+                        else
+                            echo $number . ' ';
                         $number++;
                     }
-                    echo PHP_EOL.'<br>';
+                    echo PHP_EOL . '<br>';
+                    $rows++;
                 }
             </textarea>
 
             <h2>Пояснение</h2>
             <p class="mb-2">
-                В этом решении мы используем два цикла: внешний цикл отвечает за количество строк в лесенке, а внутренний цикл выводит числа в каждой строке. Переменная $number отвечает за текущее число, которое будет выводиться.
-            </p>
-            <p class="mb-2">
-                Таким образом, при запуске этого кода вы получите вывод чисел от 1 до 100 в виде лесенки:<br>
-                <br>
-                1<br>
-                2 3<br>
-                4 5 6<br>
-                7 8 9 10<br>
-                11 12 13 14 15<br>
-                ...
+                В этом решении используется цикл while, который выполняется, пока $number не превысит $limit (100). В каждой итерации цикла проверяется цикл for, чтобы выводить числа в каждой строке. Если число $number превышает $limit, то выводится символ ".+" вместо числа
             </p>
         </div>
     </div>
