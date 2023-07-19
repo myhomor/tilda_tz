@@ -28,9 +28,21 @@ use yii\bootstrap5\Html;
             $rowSums = array_fill(0, 5, 0);
             $columnSums = array_fill(0, 7, 0);
 
+            $arrayVal = [];
+            $_mt_rand = function ($min,$max, array &$keys) use(&$_mt_rand):int
+            {
+                $i = mt_rand($min,$max);
+                if( in_array($i, $keys) ) {
+                    echo '_!!'.$i.'!!_';
+                    $i = $_mt_rand($min, $max, $keys);
+                }
+                $keys[] = $i;
+                return $i;
+            };
+
             for ($i = 0; $i < 5; $i++) {
                 for ($j = 0; $j < 7; $j++) {
-                    $array[$i][$j] = mt_rand($min,$max);
+                    $array[$i][$j] = $_mt_rand($min,$max,$arrayVal);
                     $rowSums[$i] += $array[$i][$j];
                     $columnSums[$j] += $array[$i][$j];
                 }
