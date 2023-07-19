@@ -32,10 +32,8 @@ use yii\bootstrap5\Html;
             $_mt_rand = function ($min,$max, array &$keys) use(&$_mt_rand):int
             {
                 $i = mt_rand($min,$max);
-                if( in_array($i, $keys) ) {
-                    echo '_!!'.$i.'!!_';
+                if( in_array($i, $keys) )
                     $i = $_mt_rand($min, $max, $keys);
-                }
                 $keys[] = $i;
                 return $i;
             };
@@ -83,10 +81,8 @@ use yii\bootstrap5\Html;
             $_mt_rand = function ($min,$max, array &$keys) use(&$_mt_rand):int
             {
                 $i = mt_rand($min,$max);
-                if( in_array($i, $keys) ) {
-                    echo '_!!'.$i.'!!_';
+                if( in_array($i, $keys) )
                     $i = $_mt_rand($min, $max, $keys);
-                }
                 $keys[] = $i;
                 return $i;
             };
